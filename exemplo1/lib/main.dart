@@ -1,4 +1,5 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:exemplo1/screen_definition/screen_definition.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,22 +9,23 @@ void main() {
   runApp(
     DevicePreview(
       builder: (_) => MyApp(),
+      ///Ativa / desativa o [DevicePreview]
+      enabled: true,
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       builder: DevicePreview.appBuilder,
       locale: DevicePreview.locale(context),
-      title: 'Flutter Demo',
+      title: 'Conceitos básicos de responsividade',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Conceitos básicos de responsividade'),
     );
   }
 }
@@ -37,39 +39,50 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  var _screen = ScreenDefinition.twentyFive;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: FittedBox(child: Text(widget.title)),
+        actions: [
+          PopupMenuButton(
+            onSelected: (value) {
+              setState(() {
+                _screen = value;
+              });
+            },
+            itemBuilder: (_) => [
+              PopupMenuItem(
+                child: const Text('Container ocupando 25% da tela (à esquerda)'),
+                value: ScreenDefinition.twentyFive,
+              ),
+              PopupMenuItem(
+                child: const Text('Container ocupando 75% da altura da tela e 50% da largura (centralizado)'),
+                value: ScreenDefinition.fifty,
+              ),
+            ],
+          ),
+        ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      body: Row(
+        mainAxisAlignment: _screen == ScreenDefinition.twentyFive ? MainAxisAlignment.start : MainAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: _screen == ScreenDefinition.twentyFive ? MainAxisAlignment.start : MainAxisAlignment.center,
+            children: [
+              Container(
+                color: Colors.blueGrey,
+                height: _screen == ScreenDefinition.twentyFive ? size.height / 2 : size.height * 0.75,
+                width: size.width / 2,
+              ),
+            ],
+          ),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), 
     );
   }
 }
