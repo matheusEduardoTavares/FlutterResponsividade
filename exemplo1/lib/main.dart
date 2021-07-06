@@ -15,6 +15,16 @@ void main() {
   );
 }
 
+// - Caso seja colocado uma altura física 
+// em um componente que esteja envolto por 
+// um Expanded e em volta do Expanded haja uma Column ou 
+// Row, então a altura colocada é descartada, quem é considerado é o Expanded.
+// - O Flexible com o fit de FlexFit.loose irá considerar 
+// o tamanho do filho. Caso a altura exceda o limite, o Flexible 
+// garante não dar overflow e dá o tamanho máximo possível. Agora, 
+// se o tamanho disponível for maior que o do filho, o espaço 
+// restante ficará vazio.
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
