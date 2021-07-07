@@ -1,4 +1,11 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:exemplo1/pages/align_page/align_page.dart';
+import 'package:exemplo1/pages/fitted_box_page/fitted_box_page.dart';
+import 'package:exemplo1/pages/home_page/home_page.dart';
+import 'package:exemplo1/pages/list_and_grid_view_page/list_and_grid_view_page.dart';
+import 'package:exemplo1/pages/orientation_page/orientation_page.dart';
+import 'package:exemplo1/pages/wrap_page/wrap_page.dart';
+import 'package:exemplo1/utils/pages_definitions/pages_definitions.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,68 +15,45 @@ void main() {
   runApp(
     DevicePreview(
       builder: (_) => MyApp(),
+      ///Ativa / desativa o [DevicePreview]
+      enabled: false,
     ),
   );
 }
 
+// - Caso seja colocado uma altura física 
+// em um componente que esteja envolto por 
+// um Expanded e em volta do Expanded haja uma Column ou 
+// Row, então a altura colocada é descartada, quem é considerado é o Expanded.
+// - O Flexible com o fit de FlexFit.loose irá considerar 
+// o tamanho do filho. Caso a altura exceda o limite, o Flexible 
+// garante não dar overflow e dá o tamanho máximo possível. Agora, 
+// se o tamanho disponível for maior que o do filho, o espaço 
+// restante ficará vazio.
+
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       builder: DevicePreview.appBuilder,
       locale: DevicePreview.locale(context),
-      title: 'Flutter Demo',
+      title: 'Conceitos básicos de responsividade',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+        appBarTheme: AppBarTheme(
+          centerTitle: true,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), 
+      initialRoute: PageDefinitions.homePage,
+      routes: {
+        PageDefinitions.homePage: (ctx) => HomePage(),
+        PageDefinitions.wrapPage: (ctx) => WrapPage(),
+        PageDefinitions.alignPage: (ctx) => AlignPage(),
+        PageDefinitions.orientationPage: (ctx) => OrientationPage(),
+        PageDefinitions.fittedBoxPage: (ctx) => FittedBoxPage(),
+        PageDefinitions.listAndGridViewPage: (ctx) => ListAndGridViewPage(),
+      },
     );
   }
 }
+
