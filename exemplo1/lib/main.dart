@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:exemplo1/pages/align_page/align_page.dart';
 import 'package:exemplo1/pages/home_page/home_page.dart';
+import 'package:exemplo1/pages/orientation_page/orientation_page.dart';
 import 'package:exemplo1/pages/wrap_page/wrap_page.dart';
 import 'package:exemplo1/utils/pages_definitions/pages_definitions.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ void main() {
     DevicePreview(
       builder: (_) => MyApp(),
       ///Ativa / desativa o [DevicePreview]
-      enabled: true,
+      enabled: false,
     ),
   );
 }
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         PageDefinitions.homePage: (ctx) => HomePage(),
         PageDefinitions.wrapPage: (ctx) => WrapPage(),
         PageDefinitions.alignPage: (ctx) => AlignPage(),
+        PageDefinitions.orientationPage: (ctx) => OrientationPage(),
       },
     );
   }

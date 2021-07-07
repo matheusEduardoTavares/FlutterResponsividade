@@ -43,6 +43,16 @@ class CustomDrawer extends StatelessWidget {
               );
             }
           ),
+          ListTile(
+            selected: _selectedIndex == 3,
+            title: const Text('OrientationBuilder'),
+            onTap: () {
+              _selectedIndex = 3;
+              Navigator.of(context).pushReplacementNamed(
+                PageDefinitions.orientationPage,
+              );
+            }
+          ),
         ],
       ),
     );
