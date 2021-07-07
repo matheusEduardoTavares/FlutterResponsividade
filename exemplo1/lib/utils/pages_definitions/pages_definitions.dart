@@ -4,4 +4,5 @@ abstract class PageDefinitions {
   static const alignPage = 'align-page';
   static const orientationPage = 'orientation-page';
   static const fittedBoxPage = 'fittedBox-page';
+  static const listAndGridViewPage = 'listAndGridView-page';
 }

@@ -47,10 +47,6 @@ class _FittedBoxPageState extends State<FittedBoxPage> {
                     style: BorderStyle.solid,
                   ),
                 ),
-                // fillColor: Colors.white,
-                // focusColor: Colors.white,
-                // hoverColor: Colors.white,
-                // counterStyle: TextStyle(color: Colors.white),
               ),
               items: [
                 DropdownMenuItem(

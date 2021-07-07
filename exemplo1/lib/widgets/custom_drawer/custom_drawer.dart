@@ -63,6 +63,16 @@ class CustomDrawer extends StatelessWidget {
               );
             }
           ),
+          ListTile(
+            selected: _selectedIndex == 5,
+            title: const Text('GridAndListView'),
+            onTap: () {
+              _selectedIndex = 5;
+              Navigator.of(context).pushReplacementNamed(
+                PageDefinitions.listAndGridViewPage,
+              );
+            }
+          ),
         ],
       ),
     );
