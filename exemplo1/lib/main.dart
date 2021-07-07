@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:exemplo1/pages/align_page/align_page.dart';
+import 'package:exemplo1/pages/fitted_box_page/fitted_box_page.dart';
 import 'package:exemplo1/pages/home_page/home_page.dart';
 import 'package:exemplo1/pages/orientation_page/orientation_page.dart';
 import 'package:exemplo1/pages/wrap_page/wrap_page.dart';
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
         PageDefinitions.wrapPage: (ctx) => WrapPage(),
         PageDefinitions.alignPage: (ctx) => AlignPage(),
         PageDefinitions.orientationPage: (ctx) => OrientationPage(),
+        PageDefinitions.fittedBoxPage: (ctx) => FittedBoxPage(),
       },
     );
   }

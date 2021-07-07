@@ -53,6 +53,16 @@ class CustomDrawer extends StatelessWidget {
               );
             }
           ),
+          ListTile(
+            selected: _selectedIndex == 4,
+            title: const Text('FittedBox'),
+            onTap: () {
+              _selectedIndex = 4;
+              Navigator.of(context).pushReplacementNamed(
+                PageDefinitions.fittedBoxPage,
+              );
+            }
+          ),
         ],
       ),
     );
