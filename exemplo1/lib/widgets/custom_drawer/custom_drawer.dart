@@ -24,12 +24,22 @@ class CustomDrawer extends StatelessWidget {
             }
           ),
           ListTile(
-            selected: _selectedIndex == 0,
+            selected: _selectedIndex == 1,
             title: const Text('Wrap'),
             onTap: () {
               _selectedIndex = 1;
               Navigator.of(context).pushReplacementNamed(
                 PageDefinitions.wrapPage,
+              );
+            }
+          ),
+          ListTile(
+            selected: _selectedIndex == 2,
+            title: const Text('Align and Positioned'),
+            onTap: () {
+              _selectedIndex = 2;
+              Navigator.of(context).pushReplacementNamed(
+                PageDefinitions.alignPage,
               );
             }
           ),

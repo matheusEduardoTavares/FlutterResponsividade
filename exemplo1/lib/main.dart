@@ -1,4 +1,5 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:exemplo1/pages/align_page/align_page.dart';
 import 'package:exemplo1/pages/home_page/home_page.dart';
 import 'package:exemplo1/pages/wrap_page/wrap_page.dart';
 import 'package:exemplo1/utils/pages_definitions/pages_definitions.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
       routes: {
         PageDefinitions.homePage: (ctx) => HomePage(),
         PageDefinitions.wrapPage: (ctx) => WrapPage(),
+        PageDefinitions.alignPage: (ctx) => AlignPage(),
       },
     );
   }
