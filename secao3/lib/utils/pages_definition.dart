@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:secao3/models/pages_definition/pages_definition_model.dart';
 import 'package:secao3/pages/constraints_page/constraints_page.dart';
 import 'package:secao3/pages/home_page/home_page.dart';
+import 'package:secao3/pages/layout_builder_page/layout_builder_page.dart';
 import 'package:secao3/pages/loose_and_tight_page/loose_and_tight_page.dart';
 import 'package:secao3/pages/texts_pages/texts_pages.dart';
 
@@ -10,12 +11,14 @@ abstract class PagesDefinition {
   static const constraintsPage = '/constraints-pages';
   static const textsPage = '/texts-pages';
   static const looseAndTightPage = '/loose-and-tight-pages';
+  static const layoutBuilderPage = '/layout-builder-pages';
 
   static final pagesName = <String, Widget Function(BuildContext)>{
     homePage: (BuildContext _) => HomePage(),
     constraintsPage: (BuildContext _) => ConstraintsPage(),
     textsPage: (BuildContext _) => TextsPages(),
     looseAndTightPage: (BuildContext _) => LooseAndTightPage(),
+    layoutBuilderPage: (BuildContext _) => LayoutBuilderPage(),
   };
 
   static final pages = <PagesDefinitionModel>[
@@ -38,6 +41,11 @@ abstract class PagesDefinition {
       leading: const Icon(Icons.four_k),
       title: 'LooseAndTight',
       route: looseAndTightPage,
+    ),
+    PagesDefinitionModel(
+      leading: const Icon(Icons.five_k),
+      title: 'LayoutBuilder',
+      route: layoutBuilderPage,
     ),
   ];
 }
