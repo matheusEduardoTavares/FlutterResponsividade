@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:secao3/models/pages_definition/pages_definition_model.dart';
+import 'package:secao3/pages/auto_size_text_page/auto_size_text_page.dart';
 import 'package:secao3/pages/constraints_page/constraints_page.dart';
 import 'package:secao3/pages/fractionally_sizedbox_page/fractionally_sizedbox_page.dart';
 import 'package:secao3/pages/home_page/home_page.dart';
@@ -10,12 +11,13 @@ import 'package:secao3/pages/texts_pages/texts_pages.dart';
 
 abstract class PagesDefinition {
   static const homePage = '/home';
-  static const constraintsPage = '/constraints-pages';
-  static const textsPage = '/texts-pages';
-  static const looseAndTightPage = '/loose-and-tight-pages';
-  static const layoutBuilderPage = '/layout-builder-pages';
-  static const fractionallySizedBoxPage = '/fractionally-sizedbox-pages';
+  static const constraintsPage = '/constraints-page';
+  static const textsPage = '/texts-page';
+  static const looseAndTightPage = '/loose-and-tight-page';
+  static const layoutBuilderPage = '/layout-builder-page';
+  static const fractionallySizedBoxPage = '/fractionally-sizedbox-page';
   static const intrinsicHeightPage = '/intrinsic-height-page';
+  static const autoSizeTextPage = '/auto-size-text-page';
 
   static final pagesName = <String, Widget Function(BuildContext)>{
     homePage: (BuildContext _) => HomePage(),
@@ -25,6 +27,7 @@ abstract class PagesDefinition {
     layoutBuilderPage: (BuildContext _) => LayoutBuilderPage(),
     fractionallySizedBoxPage: (BuildContext _) => FractionallySizedBoxPage(),
     intrinsicHeightPage: (BuildContext _) => IntrinsicHeightPage(),
+    autoSizeTextPage: (BuildContext _) => AutoSizeTextPage(),
   };
 
   static final pages = <PagesDefinitionModel>[
@@ -62,6 +65,11 @@ abstract class PagesDefinition {
       leading: const Icon(Icons.seven_k),
       title: 'IntrinsicHeightPage',
       route: intrinsicHeightPage,
+    ),
+    PagesDefinitionModel(
+      leading: const Icon(Icons.eight_k),
+      title: 'AutoSizeTextPage',
+      route: autoSizeTextPage,
     ),
   ];
 }
