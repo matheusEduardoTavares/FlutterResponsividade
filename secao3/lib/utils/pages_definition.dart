@@ -3,6 +3,7 @@ import 'package:secao3/models/pages_definition/pages_definition_model.dart';
 import 'package:secao3/pages/constraints_page/constraints_page.dart';
 import 'package:secao3/pages/fractionally_sizedbox_page/fractionally_sizedbox_page.dart';
 import 'package:secao3/pages/home_page/home_page.dart';
+import 'package:secao3/pages/intrinsic_height_page/intrinsic_height_page.dart';
 import 'package:secao3/pages/layout_builder_page/layout_builder_page.dart';
 import 'package:secao3/pages/loose_and_tight_page/loose_and_tight_page.dart';
 import 'package:secao3/pages/texts_pages/texts_pages.dart';
@@ -14,6 +15,7 @@ abstract class PagesDefinition {
   static const looseAndTightPage = '/loose-and-tight-pages';
   static const layoutBuilderPage = '/layout-builder-pages';
   static const fractionallySizedBoxPage = '/fractionally-sizedbox-pages';
+  static const intrinsicHeightPage = '/intrinsic-height-page';
 
   static final pagesName = <String, Widget Function(BuildContext)>{
     homePage: (BuildContext _) => HomePage(),
@@ -22,6 +24,7 @@ abstract class PagesDefinition {
     looseAndTightPage: (BuildContext _) => LooseAndTightPage(),
     layoutBuilderPage: (BuildContext _) => LayoutBuilderPage(),
     fractionallySizedBoxPage: (BuildContext _) => FractionallySizedBoxPage(),
+    intrinsicHeightPage: (BuildContext _) => IntrinsicHeightPage(),
   };
 
   static final pages = <PagesDefinitionModel>[
@@ -54,6 +57,11 @@ abstract class PagesDefinition {
       leading: const Icon(Icons.six_k),
       title: 'FractionallySizedBox',
       route: fractionallySizedBoxPage,
+    ),
+    PagesDefinitionModel(
+      leading: const Icon(Icons.seven_k),
+      title: 'IntrinsicHeightPage',
+      route: intrinsicHeightPage,
     ),
   ];
 }
