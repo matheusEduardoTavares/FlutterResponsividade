@@ -38,6 +38,7 @@ class WebAppBarResponsiveContent extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
+                      const SizedBox(width: 4,),
                       ///Esse botão acabou definindo a 
                       ///altura mínima e máxima do [Container],
                       ///então o [Container] não pode ser menor
@@ -48,6 +49,7 @@ class WebAppBarResponsiveContent extends StatelessWidget {
                       ///minimo
                       IconButton(
                         icon: const Icon(Icons.search),
+                        color: Colors.grey[500],
                         onPressed: () {},
                       ),
                       ///Se colocar o [TextField] sem nada como wrap
@@ -75,6 +77,8 @@ class WebAppBarResponsiveContent extends StatelessWidget {
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Pesquise alguma coisa aqui',
+                            ///Deixa centralizado na tela o texto dentro do campo
+                            isCollapsed: true,
                           ),
                         ),
                       ),
@@ -82,6 +86,35 @@ class WebAppBarResponsiveContent extends StatelessWidget {
                   ),
                 ),
               ),
+              if (constraints.maxWidth >= 400)
+                Padding(
+                  padding: const EdgeInsets.only(left: 28.0),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Aprender',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              if (constraints.maxWidth >= 500) ...[
+                const SizedBox(width: 18.0,),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Flutter',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+                
             ],
           );
         },

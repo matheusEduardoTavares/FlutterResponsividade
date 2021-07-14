@@ -17,6 +17,7 @@ class WebAppBar extends StatelessWidget {
           ///Usar as 2 linhas comentadas ou o [Spacer]:
           // const Spacer(),
           WebAppBarResponsiveContent(),
+          const SizedBox(width: 10,),
           IconButton(
             icon: const Icon(Icons.shopping_cart),
             onPressed: () {},
