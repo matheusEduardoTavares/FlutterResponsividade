@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto1/breakpoints.dart';
 import 'package:projeto1/pages/home/widgets/app_bar/mobile_app_bar.dart';
 import 'package:projeto1/pages/home/widgets/app_bar/web_app_bar.dart';
+import 'package:projeto1/pages/home/widgets/sections/top_section.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({ Key key }) : super(key: key);
@@ -59,11 +60,11 @@ class HomePage extends StatelessWidget {
               maxWidth: 1400,
               // maxHeight: 300,
             ),
-            child: Container(
-              height: 1000,
-              color: Colors.red,
+            child: ListView(
+              children: [
+                TopSection(),
+              ],
             ),
-            // child: ListView(),
           ),
         ),
       ),
