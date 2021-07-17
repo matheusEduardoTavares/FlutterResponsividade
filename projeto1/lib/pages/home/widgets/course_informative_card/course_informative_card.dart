@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto1/pages/home/widgets/custom_search_field.dart';
+import 'package:projeto1/pages/home/widgets/course_informative_texts/course_informative_texts.dart';
 
 class CourseInformativeCard extends StatelessWidget {
   const CourseInformativeCard({ 
@@ -22,27 +22,9 @@ class CourseInformativeCard extends StatelessWidget {
         padding: const EdgeInsets.all(22.0),
         child: Container(
           width: width ?? 450,
-          child: Column(
-            children: [
-              Text(
-                'Aprenda Flutter com este curso',
-                style: TextStyle(
-                  fontSize: titleFontSize ?? 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(height: 8,),
-              Text(
-                'Bora aprender Flutter com o professor Daniel Ciolfi! Cursos por apenas R\$22, 90. Qualidade garantida.',
-                style: TextStyle(
-                  fontSize: contentFontSize ?? 18.0,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(height: 16,),
-              CustomSearchField(),
-            ],
+          child: CourseInformativeTexts(
+            contentFontSize: contentFontSize,
+            titleFontSize: titleFontSize,
           ),
         ),
       ),

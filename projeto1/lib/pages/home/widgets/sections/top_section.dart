@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto1/breakpoints.dart';
 import 'package:projeto1/pages/home/widgets/course_informative_card/course_informative_card.dart';
+import 'package:projeto1/pages/home/widgets/course_informative_texts/course_informative_texts.dart';
 
 class TopSection extends StatelessWidget {
   TopSection({ Key key }) : super(key: key);
@@ -66,7 +67,27 @@ class TopSection extends StatelessWidget {
           );
         }
 
-        return Container();
+        ///Modo mobile
+        return Column(
+          children: [
+            AspectRatio(
+              aspectRatio: 3.2,
+              child: SizedBox(
+                height: 150,
+                width: double.infinity,
+                child: _image,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: CourseInformativeTexts(
+                titleFontSize: 35,
+                contentFontSize: 15,
+                crossAxisAlignment: CrossAxisAlignment.start,
+              ),
+            )
+          ],
+        );
       }
     );
   }
