@@ -15,7 +15,7 @@ class WebAppBarResponsiveContent extends StatelessWidget {
           ///infinito. Nesse caso, se setarmos uma altura maior 
           ///que a [WebAppBar], não irá quebrar nem dar 
           ///overflow, simplesmente irá mostrar apenas o que caber
-          print('biggest ${constraints.biggest}, smallest ${constraints.smallest}');
+          // print('biggest ${constraints.biggest}, smallest ${constraints.smallest}');
           // return Container(
           //   height: 400,
           //   width: 200,

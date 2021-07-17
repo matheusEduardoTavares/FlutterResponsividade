@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:projeto1/pages/home/widgets/custom_search_field.dart';
+import 'package:projeto1/breakpoints.dart';
+import 'package:projeto1/pages/home/widgets/course_informative_card/course_informative_card.dart';
 
 class TopSection extends StatelessWidget {
-  const TopSection({ Key key }) : super(key: key);
+  TopSection({ Key key }) : super(key: key);
+
+  final _image = Image.network(
+    'https://images.pexels.com/photos/892757/pexels-photo-892757.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w940',
+    fit: BoxFit.cover,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -18,49 +24,45 @@ class TopSection extends StatelessWidget {
               children: [
                 AspectRatio(
                   aspectRatio: 3.4,
-                  child: Image.network(
-                    'https://images.pexels.com/photos/892757/pexels-photo-892757.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w940',
-                    fit: BoxFit.cover,
-                  ),
+                  child: _image,
                 ),
                 Positioned(
                   left: 50,
                   top: 50,
-                  child: Card(
-                    color: Colors.black,
-                    elevation: 8,
-                    child: Padding(
-                      padding: const EdgeInsets.all(22.0),
-                      child: Container(
-                        width: 450,
-                        child: Column(
-                          children: [
-                            const Text(
-                              'Aprenda Flutter com este curso',
-                              style: TextStyle(
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            const SizedBox(height: 8,),
-                            Text(
-                              'Bora aprender Flutter com o professor Daniel Ciolfi! Cursos por apenas R\$22, 90. Qualidade garantida.',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                color: Colors.white,
-                              ),
-                            ),
-                            const SizedBox(height: 16,),
-                            CustomSearchField(),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                  child: CourseInformativeCard(),
                 ),
               ],
             )
+          );
+        }
+
+        ///Ou é tablet ou é web, mas o caso de web já tratamos no 
+        ///if acima, portanto aqui é como fica para o tablet
+        if (maxWidth >= mobileBreakpoint) {
+          ///Dessa forma dá impressão que a imagem está se mexendo - dando 
+          ///zoom in e zoom out pois se formos aumentando / diminuindo a 
+          ///largura da página na web, vemos que a altura continua a mesma para
+          ///a imagem
+          return SizedBox(
+            height: 320,
+            child: Stack(
+              children: [
+                SizedBox(
+                  height: 250,
+                  child: _image,
+                  width: double.infinity,
+                ),
+                Positioned(
+                  left: 20,
+                  top: 20,
+                  child: CourseInformativeCard(
+                    width: 260,
+                    titleFontSize: 35,
+                    contentFontSize: 15,
+                  ),
+                )
+              ],
+            ),
           );
         }
 
