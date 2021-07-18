@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto1/breakpoints.dart';
+import 'package:projeto1/pages/home/widgets/course_item/course_item.dart';
 
 class CoursesSection extends StatelessWidget {
   const CoursesSection({ 
@@ -31,9 +32,7 @@ class CoursesSection extends StatelessWidget {
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
         itemCount: 20,
-        itemBuilder: (_, index) => Container(
-          color: Colors.red,
-        ),
+        itemBuilder: (_, index) => CourseItem()
       ),
     );
   }
