@@ -17,11 +17,12 @@ class CourseItem extends StatelessWidget {
         Flexible(
           child: LayoutBuilder(
             builder: (_, constraints) {
-              print('constraints.biggest = ${constraints.biggest}');
-              print('constraints.smallest = ${constraints.smallest}');
+              // print('constraints.biggest = ${constraints.biggest}');
+              // print('constraints.smallest = ${constraints.smallest}');
 
               return AutoSizeText(
                 'Criação de Apps Android e iOS com Flutter - Crie 16 Apps',
+                minFontSize: 3.0,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 15.0,
