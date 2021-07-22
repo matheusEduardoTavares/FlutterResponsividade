@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto2/utils/images_links/images_links.dart';
 import 'package:responsive_framework/responsive_value.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 
@@ -41,7 +42,7 @@ class ResponsiveMenuActions extends StatelessWidget {
         CircleAvatar(
           radius: 16,
           backgroundImage: NetworkImage(
-            'https://blog.logrocket.com/wp-content/uploads/2021/05/intro-dart-flutter-feature.png',
+            ImagesLinks.flutterImage,
           ),
         ),
       ],
