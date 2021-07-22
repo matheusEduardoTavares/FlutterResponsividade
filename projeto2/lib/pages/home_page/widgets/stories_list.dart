@@ -11,12 +11,12 @@ class StoriesList extends StatelessWidget {
   Widget build(BuildContext context) {
     final mobile = ResponsiveWrapper.of(context).isMobile;
 
-    print(ResponsiveWrapper.of(context).activeBreakpoint);
+    // print(ResponsiveWrapper.of(context).activeBreakpoint);
 
     return Container(
       height: 110,
-      margin: EdgeInsets.symmetric(
-        vertical: mobile ? 15 : 30
+      margin: EdgeInsets.only(
+        top: mobile ? 15 : 30
       ),
       ///O .separated permite dar um espaço
       ///entre os itens da lista, em que o 

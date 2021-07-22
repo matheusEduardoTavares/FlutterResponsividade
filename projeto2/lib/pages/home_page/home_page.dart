@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto2/pages/home_page/widgets/post_widget.dart';
 import 'package:projeto2/pages/home_page/widgets/responsive_app_bar.dart';
+import 'package:projeto2/pages/home_page/widgets/right_panel.dart';
 import 'package:projeto2/pages/home_page/widgets/stories_list.dart';
 
 class HomePage extends StatelessWidget {
@@ -23,12 +24,19 @@ class HomePage extends StatelessWidget {
           //   width: 2000,
           //   height: 300,
           // ),
-          child: ListView(
+          child: Row(
             children: [
-              StoriesList(),
-              PostWidget(),
-              PostWidget(),
-              PostWidget(),
+              Expanded(
+                child: ListView(
+                  children: [
+                    StoriesList(),
+                    PostWidget(),
+                    PostWidget(),
+                    PostWidget(),
+                  ],
+                ),
+              ),
+              RightPanel(),
             ],
           ),
         ),

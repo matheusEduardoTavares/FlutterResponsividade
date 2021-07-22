@@ -13,7 +13,7 @@ class PostWidget extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.symmetric(
-        vertical: desktop ? 35 : 0,
+        vertical: desktop ? 16 : 0,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -49,10 +49,13 @@ class PostWidget extends StatelessWidget {
             ),
           ),
           Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15.0,
+            ),
             width: double.infinity,
             child: Image.network(
               ImagesLinks.flutterImage,
-              fit: BoxFit.fitWidth,
+              fit: BoxFit.cover,
             ),
           ),
           Padding(
