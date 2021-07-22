@@ -11,23 +11,30 @@ class StoriesList extends StatelessWidget {
   Widget build(BuildContext context) {
     final mobile = ResponsiveWrapper.of(context).isMobile;
 
+    print(ResponsiveWrapper.of(context).activeBreakpoint);
+
     return Container(
       height: 110,
       margin: EdgeInsets.symmetric(
-        vertical: mobile ? 5 : 30
+        vertical: mobile ? 15 : 30
       ),
       ///O .separated permite dar um espaço
       ///entre os itens da lista, em que o 
       ///[separatorBuilder] recebe o contexto
       ///e o index e permite retornar um widget 
       ///para fazer esse espaçamento
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        separatorBuilder: (_, __) => const SizedBox(
-          width: 16.0,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16.0,
         ),
-        itemCount: 16,
-        itemBuilder: (_, index) => StoryCircle(),
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          separatorBuilder: (_, __) => const SizedBox(
+            width: 16.0,
+          ),
+          itemCount: 16,
+          itemBuilder: (_, index) => StoryCircle(),
+        ),
       ),
     );
   }
